@@ -14,19 +14,20 @@ public class PlayerController : MonoBehaviour
     public Camera hoodCamera;
     public KeyCode switchKey;
 
+    public string inputID;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+    
     }
 
     // Update is called once per frame
     void Update()
     {
         //This is where we get player input.
-        horizontalInput = Input.GetAxis("Horizontal");
-        forwardInput = Input.GetAxis("Vertical");
+        horizontalInput = Input.GetAxis("Horizontal" + inputID);
+        forwardInput = Input.GetAxis("Vertical" + inputID);
 
         //We move the vehicle forward.
         transform.Translate(Vector3.forward * Time.deltaTime * speed * forwardInput);
